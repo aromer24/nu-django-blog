@@ -7,25 +7,8 @@
 {% block content %}
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-
-        {% with all_tags=post.get_all_tags %}
-
-            {% for tag in all_tags %}
-            {{tag}}//
-            {% endfor %}
-            <p></p>
-            <hr>
-            {% if post.image %}
-            <img src="{{post.image.url}}" width="300">
-            {% endif %}
-            {{post.text|safe}}
-            <p></p>
-            <hr>
-            {% for tag in all_tags %}
-            {{tag}}--
-            {% endfor %}
-
-        {% endwith %}
+        <img src="{{post.image.url}}" width="300">
+        {{post.text}}
     </div>
 </div>
 {% endblock %}

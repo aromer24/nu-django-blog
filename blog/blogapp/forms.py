@@ -22,18 +22,3 @@ class PostForm(forms.ModelForm):
         # fields = '__all__'
         # fields = ('name', 'category')
         exclude = ('user',)
-
-
-class PostCategoryForm(forms.ModelForm):
-    name = forms.CharField(label='Название',
-                           widget=forms.TextInput(attrs={'placeholder': 'Name', 'class': 'form-control'}))
-
-    # Чекбоксы
-    tags = forms.ModelMultipleChoiceField(queryset=Tag.objects.all(),
-                                          widget=forms.CheckboxSelectMultiple())
-
-    class Meta:
-        model = Post
-        # fields = '__all__'
-        # fields = ('name', 'category')
-        exclude = ('user', 'category')

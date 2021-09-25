@@ -1,5 +1,4 @@
 {% load static %}
-{% load str_extensions %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +55,7 @@
                 </li>
                 {% if user.is_authenticated %}
                  <li class="nav-item">
-                    Привет, <a href="{% url 'users:profile' pk=user.pk %}">{{user.username}}</a>
+                    Привет, {{user.username}}
                     <a class="nav-link" href="{% url 'users:logout' %}">Выход</a>
                 </li>
                 {% else %}
@@ -81,7 +80,7 @@
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>{{title|sup}}</h1>
+                    <h1>Clean Blog</h1>
                     <span class="subheading">A Blog Theme by Start Bootstrap</span>
                 </div>
             </div>
@@ -127,12 +126,7 @@
                         </a>
                     </li>
                 </ul>
-
-                <p class="copyright text-muted">
-                    <button type="button" id="btn-joke" class="btn-info">
-                    {{joke}}
-                </button>
-                </p>
+                <p class="copyright text-muted">Copyright &copy; Your Website 2019</p>
             </div>
         </div>
     </div>
@@ -142,7 +136,6 @@
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
 <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'js/clean-blog.min.js' %}"></script>
-<script src="{% static 'js/my.js' %}"></script>
 
 </body>
 
