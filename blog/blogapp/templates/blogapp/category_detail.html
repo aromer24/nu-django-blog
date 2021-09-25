@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>{{object.name}}</h1>
+        {% for post in object.category_posts.all %}
+        {{ post.name }}
+        <p></p>
+        <hr>
+        {% endfor %}
+
+        <form method="post" action="{% url 'blog:post_category_create' pk=object.pk %}">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}

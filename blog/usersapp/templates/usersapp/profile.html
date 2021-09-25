@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Профиль
+{% endblock %}
+
+{% block content %}
+    Профиль пользователя {{object.username}}
+    <hr>
+    Токен:
+<span id="token">{% if object.auth_token %} {{object.auth_token}} {% else %} не создан {% endif %}</span>
+
+    <form action="{% url 'users:update_token' %}">
+        <button type="submit" class="btn btn-primary">Refresh token</button>
+    </form>
+    <hr>
+    <button type="button" id="ajax-btn" class="btn btn-info">Refresh token ajax</button>
+
+{% endblock %}
